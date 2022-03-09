@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<meta charset="UTF-8">
+		<title> Simple Calculator</title>
+		<style>
+			.b {
+			background-color:brown;
+			color:yellow;
+			padding:10px 30px;
+			text-align:center;
+			font-size:25px;
+			}
+			.t{font-size:30px;}
+			
+		</style>
+	</head>
+	<body>
+		<table border="1" align="center" cellspacing="2px" cellpadding="2px">
+		<caption><h1 style="background-color:green;color:white">Simple Calculator</h1></caption>
+		<tr>
+			<td colspan="2" style="background-color:black;"><input class="t" type="text" id="res"></td>
+			<td><button class="b" onclick="ac()" >AC</button></td>
+			<td><button class="b" onclick="remove()">&#8592</button></td>
+		</tr>
+		
+		<tr align="center">
+			<td><button class="b" onclick="show('1')">1</button></td>
+			<td><button class="b" onclick="show('2')">2</button></td>
+			<td><button class="b" onclick="show('3')">3</button></td>
+			<td><button class="b" onclick="show('+')">+</button></td>
+		</tr>
+		<tr align="center">
+			<td><button class="b"onclick="show('4')">4</button></td>
+			<td><button class="b" onclick="show('5')">5</button></td>
+			<td><button class="b" onclick="show('6')">6</button></td>
+			<td><button class="b" onclick="show('-')">-</button></td>
+		</tr>
+		<tr align="center">
+			<td><button class="b" onclick="show('7')">7</button></td>
+			<td><button class="b" onclick="show('8')">8</button></td>
+			<td><button class="b" onclick="show('9')">9</button></td>
+			<td><button class="b" onclick="show('*')">*</button></td>
+		</tr>
+		<tr align="center">
+			<td><button class="b" onclick="show('0')">0</button></td>
+			<td><button class="b" onclick="show('/')">/</button></td>
+			<td><button class="b" onclick="show('%')">%</button></td>
+			<td><button class="b" onclick="cal()">=</button></td>
+		</tr>
+		</table>
+	</body>
+	<script>
+	function ac(){
+		document.querySelector("#res").value="";
+		}
+	function show(input){
+	document.querySelector("#res").value+=input;
+	}
+	function cal(){
+		let result= eval(document.querySelector("#res").value);
+		document.querySelector("#res").value=result
+		}
+	function remove(){
+		let result=document.querySelector("#res").value;
+		let len=result.length
+		let finalresult=result.slice(0,len-1);
+		document.querySelector("#res").value=finalresult;
+		console.log(result.slice(0,len-1));
+		}
+	</script>
+</html>
